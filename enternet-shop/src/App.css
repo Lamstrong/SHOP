@@ -1,0 +1,72 @@
+/* Обнуление отступов и границ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Убираем стандартные стили списков */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Сброс стилей ссылок */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Убираем стандартные отступы у заголовков и параграфов */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+/* Убираем стандартные стили кнопок и полей ввода */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* Убираем стандартные стили для изображений */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Убираем стандартный стиль таблиц */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Делаем HTML5-элементы блочными */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}

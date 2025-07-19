@@ -1,0 +1,22 @@
+.headerContainer {
+  display: flex;
+  height: 80px;
+  border: 2px solid #000;
+  padding: 10px 10px;
+  justify-content: space-between;
+}
+.inputContainer {
+  border-radius: 3px;
+}
+.inputSearch {
+  border: 1px solid #000;
+}
+
+.searchBtn {
+}
+
+.componentNavBar {
+  display: flex;
+  border: 1px solid #000;
+  padding: 10px;
+}
