@@ -9,10 +9,16 @@ const Header = () => {
         <img src="vite.svg" alt="notFound" />
       </a>
       <div className={styles.inputContainer}>
-        <input className={styles.inputSearch} type="text" />
-        <button className={styles.searchBtn}>
-          <Search />
-        </button>
+        <div className={styles.searchBox}>
+          <input
+            placeholder="Искать на E-shop"
+            className={styles.inputSearch}
+            type="text"
+          />
+          <button className={styles.searchBtn}>
+            <Search />
+          </button>
+        </div>
       </div>
       <div className={styles.componentNavBar}>
         <NavButton />

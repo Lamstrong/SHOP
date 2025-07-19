@@ -1,6 +1,13 @@
 .navContainer {
   display: flex;
-  gap: 30px;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navItem:hover {
+  color: #2563eb; /* Синий при наведении */
+  background: #f3f4f6; /* Легкий фон при наведении */
 }
 
 .navItem {
@@ -8,4 +15,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.navItem span {
+  margin-top: 0;
+  text-align: center;
+  user-select: none;
 }
