@@ -1,5 +1,5 @@
 import { User, ChartBar, ListOrdered, Heart } from "lucide-react";
-
+import styles from "./ui_css_modules/navButton.module.css";
 const links = [
   {
     icon: User,
@@ -25,13 +25,9 @@ const links = [
 
 export default function NavButton() {
   return (
-    <div className="flex gap-8">
+    <div className={styles.navContainer}>
       {links.map(({ icon: Icon, label, href }) => (
-        <a
-          key={label}
-          href={href}
-          className="flex flex-col items-center text-black text-sm no-underline gap-1 hover:text-blue-500 transition"
-        >
+        <a key={label} href={href} className={styles.navItem}>
           <Icon size={32} strokeWidth={1.5} />
           <span className="mt-1">{label}</span>
         </a>
