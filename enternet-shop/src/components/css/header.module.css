@@ -1,6 +1,6 @@
 .headerContainer {
   display: flex;
-  height: 80px;
+  height: 100px;
   border: 2px solid #000;
   padding: 10px 10px;
   justify-content: space-between;
