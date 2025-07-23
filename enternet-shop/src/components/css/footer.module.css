@@ -1,4 +1,10 @@
 .footerContainer {
-  height: 100px;
-  border: 2px solid #000;
+  height: 200px;
+  background: #7635ab;
+}
+
+.footerBody {
+  display: flex;
+  flex: 1 1 auto;
+  padding: 10px 10px;
 }

@@ -1,18 +1,15 @@
-import { title } from "process";
+import styles from "./ui_css_modules/footerServices.module.css";
 
 const footerServices = [
   {
-    title: "Тестовый текст1",
     description: "Тестовое описание(ссылка)",
     href: "#",
   },
   {
-    title: "Тестовый текст2",
     description: "Тестовое описание(ссылка)",
     href: "#",
   },
   {
-    title: "Тестовый текст3",
     description: "Тестовое описание(ссылка)",
     href: "#",
   },
@@ -21,10 +18,12 @@ const footerServices = [
 export default function FooterService() {
   return (
     <div>
-      {footerServices.map(({ title, description, href }) => (
-        <div key={title}>
-          <h6>{title}</h6>
-          <a href={href}>{description}</a>
+      <h6 className={styles.titleService}>Бобёр</h6>
+      {footerServices.map(({ description, href }) => (
+        <div className={styles.serviceContainer} key={description}>
+          <a className={styles.seviceLink} href={href}>
+            {description}
+          </a>
         </div>
       ))}
     </div>

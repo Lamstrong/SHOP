@@ -4,7 +4,9 @@ import FooterService from "./ui/FooterService";
 const Footer = () => {
   return (
     <div className={styles.footerContainer}>
-      <FooterService />
+      <div className={styles.footerBody}>
+        <FooterService />
+      </div>
     </div>
   );
 };

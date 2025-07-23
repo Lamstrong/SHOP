@@ -1,0 +1,14 @@
+.serviceContainer {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  background: #59f1db78;
+}
+
+.titleService {
+  margin: 0 0 30px 0;
+}
+
+.seviceLink {
+  margin: 10px;
+}
