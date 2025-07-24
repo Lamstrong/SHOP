@@ -1,14 +1,172 @@
-.serviceContainer {
+/*
+  Основные стили футера интернет-магазина "Бобёр".
+  Каждый класс снабжён подробным комментарием для понимания структуры и логики оформления.
+*/
+
+/* Внешний контейнер футера. Занимает всю ширину, задаёт вертикальные отступы. */
+.footerRoot {
+  width: 100%;
+  padding: 2.5rem 0 0.5rem 0;
+}
+
+/* Внутренний блок футера: центрирует контент, задаёт фон, скругления и тень (эффект "парящего" блока). */
+.footerInner {
+  max-width: 1300px; /* Ограничение ширины для красивого вида на больших экранах */
+  margin: 0 auto; /* Центрирование по горизонтали */
+  background: #f9fbfd; /* Очень светлый фон */
+  border-radius: 1.2rem; /* Скруглённые углы */
+  box-shadow: 0 8px 32px 0 rgba(60,60,60,0.08); /* Мягкая тень */
+  padding: 2.5rem 2.5rem 1.2rem 2.5rem; /* Внутренние отступы */
+}
+
+/* Сетка для основных секций футера: "О компании", "Сервисы", "Контакты". */
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Адаптивная сетка */
+  gap: 2.5rem 2rem; /* Отступы между колонками и строками */
+}
+
+/* Блок одной секции футера (например, "О компании"). */
+.footerBlock {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  background: #59f1db78;
+  gap: 1.1rem; /* Вертикальный отступ между элементами внутри блока */
+  min-width: 180px; /* Минимальная ширина для красивого вида */
 }
 
+/* Название магазина или логотип. */
 .titleService {
-  margin: 0 0 30px 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #18192b;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
 }
 
-.seviceLink {
-  margin: 10px;
+/* Краткое описание магазина. */
+.footerDesc {
+  color: #6b7280; /* Серый цвет для второстепенного текста */
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+/* Заголовок секции (например, "Сервисы" или "Контакты"). */
+.linksTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #22223b;
+  margin-bottom: 0.5rem;
+}
+
+/* Список сервисных ссылок. */
+.linksGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Отступ между ссылками */
+}
+
+/* Оформление одной сервисной ссылки. */
+.serviceLink {
+  color: #374151; /* Тёмно-серый цвет */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s, text-decoration 0.2s, background 0.2s; /* Плавные эффекты */
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Эффект наведения на сервисную ссылку. */
+.serviceLink:hover {
+  color: #2563eb; /* Синий цвет */
+  background: #e0e7ff; /* Светло-синий фон */
+  text-decoration: underline;
+}
+
+/* Контактная информация (телефон, email). */
+.contactsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+/* Список иконок соцсетей. */
+.socials {
+  display: flex;
+  gap: 0.7rem; /* Отступ между иконками */
+  margin-top: 0.5rem;
+}
+
+/* Оформление иконки соцсети: круглый фон, тень, плавные эффекты. */
+.socialLink {
+  color: #374151;
+  background: #e5e7eb;
+  border-radius: 50%;
+  padding: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  font-size: 1.1rem;
+  box-shadow: 0 1px 2px 0 rgba(60,60,60,0.04);
+}
+
+/* Цветные эффекты при наведении на иконки соцсетей (VK, Telegram, Instagram). */
+.socialLink-vk:hover {
+  color: #fff;
+  background: #4c75a3;
+}
+.socialLink-tg:hover {
+  color: #fff;
+  background: #229ed9;
+}
+.socialLink-inst:hover {
+  color: #fff;
+  background: #e1306c;
+}
+
+/* Копирайт внизу футера. */
+.copyright {
+  text-align: center;
+  color: #b0b4be;
+  font-size: 0.93rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* --- Адаптивность футера --- */
+
+/* На экранах до 900px уменьшаем внутренние отступы футера. */
+@media (max-width: 900px) {
+  .footerInner {
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+  }
+}
+
+/* На экранах до 700px:
+   - Секции футера идут в столбик
+   - Между секциями появляется разделительная линия
+   - Скругления и тень чуть меньше
+   - Копирайт становится компактнее
+*/
+@media (max-width: 700px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem 0;
+  }
+  .footerBlock:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .footerInner {
+    border-radius: 0.7rem;
+    box-shadow: 0 4px 16px 0 rgba(60,60,60,0.10);
+  }
+  .copyright {
+    font-size: 0.89rem;
+  }
 }
