@@ -1,9 +1,10 @@
 .footerContainer {
+  display: flex;
   height: 200px;
+  border: 1px solid #000;
 }
 
 .footerBody {
   display: flex;
   flex: 1 1 auto;
-  padding: 10px 10px;
 }

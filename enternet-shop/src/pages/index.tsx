@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <>
       <Header />
-      <main></main>
+
       <Footer />
     </>
   );

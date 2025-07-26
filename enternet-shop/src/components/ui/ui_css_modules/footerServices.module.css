@@ -11,18 +11,20 @@
 
 /* Внутренний блок футера: центрирует контент, задаёт фон, скругления и тень (эффект "парящего" блока). */
 .footerInner {
-  max-width: 1300px; /* Ограничение ширины для красивого вида на больших экранах */
   margin: 0 auto; /* Центрирование по горизонтали */
   background: #f9fbfd; /* Очень светлый фон */
   border-radius: 1.2rem; /* Скруглённые углы */
-  box-shadow: 0 8px 32px 0 rgba(60,60,60,0.08); /* Мягкая тень */
+  box-shadow: 0 8px 32px 0 rgba(60, 60, 60, 0.08); /* Мягкая тень */
   padding: 2.5rem 2.5rem 1.2rem 2.5rem; /* Внутренние отступы */
 }
 
 /* Сетка для основных секций футера: "О компании", "Сервисы", "Контакты". */
 .footerGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Адаптивная сетка */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  ); /* Адаптивная сетка */
   gap: 2.5rem 2rem; /* Отступы между колонками и строками */
 }
 
@@ -111,7 +113,7 @@
   justify-content: center;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   font-size: 1.1rem;
-  box-shadow: 0 1px 2px 0 rgba(60,60,60,0.04);
+  box-shadow: 0 1px 2px 0 rgba(60, 60, 60, 0.04);
 }
 
 /* Цветные эффекты при наведении на иконки соцсетей (VK, Telegram, Instagram). */
@@ -164,7 +166,7 @@
   }
   .footerInner {
     border-radius: 0.7rem;
-    box-shadow: 0 4px 16px 0 rgba(60,60,60,0.10);
+    box-shadow: 0 4px 16px 0 rgba(60, 60, 60, 0.1);
   }
   .copyright {
     font-size: 0.89rem;
