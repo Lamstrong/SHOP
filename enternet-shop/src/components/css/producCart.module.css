@@ -1,0 +1,43 @@
+.ProductCartContainer,
+.productDescriptoinBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.productCardImage {
+  width: 250px; /* Фиксированная ширина */
+  height: 350px; /* Фиксированная высота (или auto для гибкости) */
+  display: flex;
+  flex-direction: column; /* Чтобы контент внутри выстраивался вертикально */
+  border: 1px solid #000000;
+  border-radius: 8px;
+  overflow: hidden; /* Обрезает всё, что выходит за границы */
+}
+
+.productPrice {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.productTitle {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.rating {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.productRating {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.productRatingCount {
+  font-size: 20px;
+}
