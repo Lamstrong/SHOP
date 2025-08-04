@@ -26,14 +26,32 @@ const Index = () => {
     loadProducts();
   }, []);
 
-  if (loading) return <div>Загрузка...</div>;
+  if (loading)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        Загрузка...
+      </div>
+    );
   if (error) return <div>{error}</div>;
 
   return (
     <>
       <Header />
       <main>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div
+          className=""
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
+            gap: "20px",
+          }}
+        >
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
