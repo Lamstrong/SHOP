@@ -1,0 +1,32 @@
+.favoriteContainer {
+}
+
+.favoriteBody {
+  display: flex;
+  gap: 16px;
+  padding: 0 5%;
+  margin: 20px auto;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  font-family: sans-serif;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.emptyFavorite {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+}
+
+.message {
+  font-size: 30px;
+}
+
+.recomendationMassage {
+  font-size: 20px;
+}

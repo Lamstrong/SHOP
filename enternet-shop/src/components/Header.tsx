@@ -5,7 +5,7 @@ import NavButton from "./ui/NavButton";
 const Header = () => {
   return (
     <div className={styles.headerContainer}>
-      <a href="#" className={styles.logo}>
+      <a href="/" className={styles.logo}>
         <img src="vite.svg" alt="notFound" />
       </a>
       <div className={styles.inputContainer}>

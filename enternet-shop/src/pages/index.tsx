@@ -4,6 +4,7 @@ import ProductCard from "@/components/productCard";
 import { useEffect, useState } from "react";
 import { Product } from "@/store/store";
 import { api } from "@/api/api";
+import { FadeLoader, ClipLoader } from "react-spinners";
 
 const Index = () => {
   const [products, setProducts] = useState<Product[]>();
@@ -36,6 +37,7 @@ const Index = () => {
         }}
       >
         Загрузка...
+        <ClipLoader loading={!loading} size={40} />
       </div>
     );
   if (error) return <div>{error}</div>;
@@ -47,9 +49,13 @@ const Index = () => {
         <div
           className=""
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
-            gap: "20px",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "16px",
+            padding: "0 5%",
+            margin: "20px auto",
+            boxSizing: "border-box",
           }}
         >
           {products.map((product) => (

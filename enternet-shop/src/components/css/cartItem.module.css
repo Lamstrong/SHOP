@@ -1,0 +1,80 @@
+/* Товар */
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+.productImage {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.productInfo {
+  flex: 1;
+}
+
+.productTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.productTitle:hover {
+  color: #005bff;
+}
+
+.productDetails {
+  font-size: 13px;
+  color: #666;
+  margin: 2px 0;
+}
+
+.actions {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #aaa;
+  display: flex;
+  gap: 10px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.counter button {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.counter span {
+  padding: 0 12px;
+  font-weight: 600;
+}
+
+.priceColumn {
+  text-align: right;
+}
+
+.discountPrice {
+  font-weight: bold;
+  font-size: 16px;
+  color: #e10040;
+}
+
+.originalPrice {
+  font-size: 13px;
+  color: #888;
+  text-decoration: line-through;
+}

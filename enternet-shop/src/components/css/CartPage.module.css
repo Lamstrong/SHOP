@@ -1,0 +1,137 @@
+.cartPage {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fafafa;
+  font-family: sans-serif;
+}
+
+/* Колонки */
+.leftColumn {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rightColumn {
+  flex: 1;
+}
+
+/* Карточка блока */
+.cartBlock {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Заголовки */
+.blockTitle {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.blockSubtitle {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Ссылки */
+.link {
+  color: #a100ec;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Правая колонка */
+.summaryCard {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.totalPrice {
+  color: #111;
+}
+
+.discount {
+  color: #e10040;
+}
+
+.orderButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #a100ec;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.orderButton:hover {
+  background-color: #8700c1;
+}
+
+.agreement {
+  font-size: 12px;
+  color: #555;
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.agreement a {
+  color: #a100ec;
+  text-decoration: none;
+}
+
+.cartNullContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.cartNullMessage {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.cartNullLink {
+  padding: 10px;
+  color: #ffffff;
+  background: #a100ec;
+  border-radius: 10px;
+}
+
+.cartNullLink:hover {
+  background-color: #8700c1;
+}

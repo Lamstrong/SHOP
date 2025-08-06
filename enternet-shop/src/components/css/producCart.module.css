@@ -32,6 +32,9 @@
   text-overflow: ellipsis;
   text-align: center;
 }
+.productTitle:hover {
+  color: #005bff;
+}
 
 .rating {
   display: flex;
@@ -47,3 +50,5 @@
 .productRatingCount {
   font-size: 20px;
 }
+
+/* ///// */
