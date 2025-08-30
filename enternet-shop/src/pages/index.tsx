@@ -2,50 +2,43 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ProductCard from "@/components/productCard";
 import { useEffect, useState } from "react";
-import { Product } from "@/store/store";
+import { Product, useStore } from "@/store/store";
 import { api } from "@/api/api";
 import { FadeLoader, ClipLoader } from "react-spinners";
+import Filters from "@/components/Filters";
+import "@/home.css";
 
 const Index = () => {
-  const [products, setProducts] = useState<Product[]>();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { productList, loading, error, fetchProducts, getFilteredProducts } =
+    useStore();
+
+  const products = getFilteredProducts();
 
   useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        const data = await api.getProducts();
-        setProducts(data);
-      } catch (err) {
-        setError("Не удалось загрузить товары");
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadProducts();
-  }, []);
+    fetchProducts();
+  }, [fetchProducts]);
 
   if (loading)
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        Загрузка...
-        <ClipLoader loading={!loading} size={40} />
+      <div className="loader">
+        <div>Загрузка...</div>
       </div>
     );
-  if (error) return <div>{error}</div>;
+
+  if (error)
+    return (
+      <div className="error">
+        <div>{error}</div>
+      </div>
+    );
 
   return (
     <>
       <Header />
       <main>
+        <div className="">
+          <Filters />
+        </div>
         <div
           className=""
           style={{
@@ -61,6 +54,13 @@ const Index = () => {
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+        <div className="">
+          {productList.length === 0 && !loading && (
+            <div className="">
+              <p>Товары не найдены</p>
+            </div>
+          )}
         </div>
       </main>
       <Footer />

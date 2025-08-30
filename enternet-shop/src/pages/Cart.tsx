@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function CartPage() {
   const { cart, removeFromCart } = useStore();
+  const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+
   return (
     <div>
       <Header />
@@ -65,22 +67,22 @@ export default function CartPage() {
               Выбрать адрес доставки
             </a>
             <div className={styles.summaryRow}>
-              <span>Товары, 1 шт.</span>
-              <span>34 000 ₽</span>
+              <span>Товары, {cart.length} шт.</span>
+              <span>{totalPrice.toFixed(2)} $</span>
             </div>
-            <div className={styles.summaryRow}>
-              <span>Моя скидка</span>
-              <span className={styles.discount}>–20 060 ₽</span>
-            </div>
+
             <div className={styles.totalRow}>
               <span>Итого</span>
-              <span className={styles.totalPrice}>13 940 ₽</span>
+              <span className={styles.totalPrice}>
+                {totalPrice.toFixed(2)} $
+              </span>
             </div>
             <button className={styles.orderButton}>Заказать</button>
             <div className={styles.agreement}>
               <input type="checkbox" checked readOnly />
               <label>
-                Соглашаюсь с <a href="#">правилами пользования</a> торговой
+                Соглашаюсь с{" "}
+                <a href="https://google.com">правилами пользования</a> торговой
                 площадкой и возврата
               </label>
             </div>

@@ -1,3 +1,4 @@
+import { api } from "@/api/api";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -22,14 +23,86 @@ interface StoreState {
   removeFromCart: (productId: number) => void;
   addToFavorite: (product: Product) => void;
   removeFromFavorite: (productId: number) => void;
+  fetchProducts: () => Promise<void>;
+  loading: boolean;
+  error: null;
+  filters: {
+    category: string;
+    priceRange: [number, number];
+    rating: number;
+    searchQuery: string;
+  };
+  setFilter: (filter: Partial<StoreState["filters"]>) => void;
+  resetFilters: () => void;
+  getFilteredProducts: () => Product[];
 }
 
 export const useStore = create<StoreState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       productList: [],
+      filters: {
+        category: "",
+        priceRange: [0, 1000],
+        rating: 0,
+        searchQuery: "",
+      },
+      loading: false,
+      error: null,
+      fetchProducts: async () => {
+        if (get().productList.length > 0) {
+          return;
+        }
+
+        set({ loading: true, error: null });
+
+        try {
+          const data = await api.getProducts();
+          set({
+            productList: data,
+            loading: false,
+          });
+        } catch (error) {
+          set({ error: error, loading: false });
+        }
+      },
+      setFilter: (filter) =>
+        set((state) => ({
+          filters: { ...state.filters, ...filter },
+        })),
+      resetFilters: () =>
+        set({
+          filters: {
+            category: "",
+            priceRange: [0, 1000],
+            rating: 0,
+            searchQuery: "",
+          },
+        }),
+      getFilteredProducts: () => {
+        const { productList, filters } = get();
+        return productList.filter((product) => {
+          const matchesCategory =
+            !filters.category || product.category === filters.category;
+
+          const matchesPrice =
+            product.price >= filters.priceRange[0] &&
+            product.price <= filters.priceRange[1];
+
+          const matchesRating = product.rating.rate >= filters.rating;
+
+          const matchesSearch = product.title
+            .toLowerCase()
+            .includes(filters.searchQuery.toLowerCase());
+
+          return (
+            matchesCategory && matchesPrice && matchesRating && matchesSearch
+          );
+        });
+      },
       cart: [],
       favorite: [],
+      productCount: 1,
       addToCart: (product) =>
         set((state) => ({ cart: [...state.cart, product] })),
       removeFromCart: (productId) =>

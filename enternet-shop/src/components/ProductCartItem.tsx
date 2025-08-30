@@ -3,6 +3,8 @@ import styles from "./css/cartItem.module.css";
 import { Product } from "@/store/store";
 import { Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/hooks/useCart";
+import { useState } from "react";
 
 interface ProductCartItemProps {
   item: Product;
@@ -10,7 +12,9 @@ interface ProductCartItemProps {
 }
 
 const ProductCartItem = ({ item, onRemove }: ProductCartItemProps) => {
-  const { cart } = useStore();
+  const { cart } = useCart();
+  let { productCount } = useStore();
+  const [num, setNum] = useState(productCount);
 
   return (
     <div className={styles.cartItem}>
@@ -31,16 +35,15 @@ const ProductCartItem = ({ item, onRemove }: ProductCartItemProps) => {
           Только предоплата · Только курьером
         </p>
         <div className={styles.actions}>
-          <span className={styles.heart}>♡</span>
           <button onClick={() => onRemove(item.id)} className={styles.trash}>
-            <Trash2 />
+            <Trash2 size={18} />
           </button>
         </div>
       </div>
       <div className={styles.counter}>
         <button>-</button>
-        <span>1</span>
-        <button>+</button>
+        <span>{num}</span>
+        <button onClick={() => setNum(num + 1)}>+</button>
       </div>
       <div className={styles.priceColumn}>
         <span className={styles.originalPrice}>{item.price}</span>

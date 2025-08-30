@@ -13,7 +13,7 @@
   height: 370px; /* Фиксированная высота (или auto для гибкости) */
   display: flex;
   flex-direction: column; /* Чтобы контент внутри выстраивался вертикально */
-  border: 1px solid #000000;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 8px;
   overflow: hidden; /* Обрезает всё, что выходит за границы */
 }
