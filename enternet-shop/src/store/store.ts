@@ -64,6 +64,7 @@ export const useStore = create<StoreState>()(
           });
         } catch (error) {
           set({ error: error, loading: false });
+          console.error(error);
         }
       },
       setFilter: (filter) =>

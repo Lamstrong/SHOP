@@ -56,11 +56,12 @@ const Index = () => {
           ))}
         </div>
         <div className="">
-          {productList.length === 0 && !loading && (
-            <div className="">
-              <p>Товары не найдены</p>
-            </div>
-          )}
+          {productList.length === 0 ||
+            (!loading && (
+              <div className="">
+                <p>Товары не найдены</p>
+              </div>
+            ))}
         </div>
       </main>
       <Footer />
